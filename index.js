@@ -9,17 +9,23 @@
   örnek input:  "C:/Users/johnsmith/Music/Beethoven_5.mp3"
   örnek output: "Beethoven_5.mp3"
 
-  örnek input:  "Beethoven_5.mp3"
+  örnek input:  ""
   örnek output: "Beethoven_5.mp3"
 
   örnek input:  ""
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
-}
+function dosyaAdiniBul(dosyaYolu) {
+  if (!dosyaYolu) return "";
 
+  const dosyaAdiArray = dosyaYolu.split('/');
+  return dosyaAdiArray[dosyaAdiArray.length - 1];
+
+}
+console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"))
+console.log(dosyaAdiniBul("Beethoven_5.mp3"))
+console.log(dosyaAdiniBul())
 /*
   GÖREV 2
   - Input:  Bir sayı arrayini parametre olarak alacak bir fonksiyon oluştur.
@@ -38,9 +44,28 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(sayiArray) {
+  if (sayiArray.length === 0) return null; 
+
+  let toplam = 0;
+
+  for (let i = 0; i < sayiArray.length; i++) {
+
+    toplam += sayiArray[i];
+
+  }
+
+  let  sontoplam = toplam / sayiArray.length
+
+  console.log(sontoplam.toFixed(0))
+
+  return sontoplam; 
+
 }
+ortalamaBul([])
+ortalamaBul([4])
+ortalamaBul([50, -26, 153, 7])
+ortalamaBul([109, 216, 288, 143, 71, 185, -278, 194, 5])
 
 /*
   GÖREV 3
@@ -62,9 +87,51 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(sayiArray, ortalamaBul) {
+  function ortalamaBul(sayiArray) {
+    if (sayiArray.length === 0) return null; 
+  
+    let toplam = 0;
+  
+    for (let i = 0; i < sayiArray.length; i++) {
+  
+      toplam += sayiArray[i];
+  
+    }
+  
+    let  sontoplam = toplam / sayiArray.length
+  
+    let sonsontoplam = sontoplam.toFixed(0)
+  
+    
+  
+    return sonsontoplam; 
+  
+  }
+  
+  
+
+  if (sayiArray.length === 0) return null; 
+
+
+  let ortalama = ortalamaBul(sayiArray); 
+
+  return sayiArray.filter(sayi => sayi >= ortalama); 
 }
+
+
+console.log(ortalamadanBuyukleriBul([]))
+console.log(ortalamadanBuyukleriBul([4]))
+console.log(ortalamadanBuyukleriBul([50, -26, 153, 7]))
+console.log(ortalamadanBuyukleriBul([109, 216, 288, 143, 71, 185, -278, 194, 5]))
+
+
+
+
+
+
+
+
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
